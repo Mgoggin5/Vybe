@@ -1,6 +1,14 @@
 .jumbotron{
-    background-image: url("../images/VYBE.png");
-    height: 500px;
-    width: 100%;
+background-color: #252324;
+}
 
+.vybe{
+    margin-left: 200px;
+}
+.navbar{
+    background-color: #182b33; 
+    
+}
+body{
+    background-color: blac;
 }
