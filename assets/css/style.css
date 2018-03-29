@@ -6,9 +6,14 @@ background-color: #252324;
     margin-left: 200px;
 }
 .navbar{
-    background-color: #182b33; 
-    
+    background-color: #252324; }
+
+#bar{    
+    color: #ff830f; 
 }
 body{
     background-image: url("../images/whiteback.jpg");
+}
+.line-color{
+    margin-top: 13px;
 }
