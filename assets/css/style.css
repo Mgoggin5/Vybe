@@ -17,3 +17,8 @@ body{
 .line-color{
     margin-top: 13px;
 }
+#container1{
+    background-color: #252324; 
+    width: 75%;
+    height: 50%;
+}
