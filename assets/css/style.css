@@ -18,3 +18,10 @@ body{
     width: 75%;
     height: 50%;
 }
+.moods{
+    width: 60px;
+}
+.mood-background{
+    background-image: url("../images/Neon-Backgrounds.jpg");
+    background-size: 100%;
+}
