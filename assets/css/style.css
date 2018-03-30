@@ -8,7 +8,7 @@ body{
     }
     #vybe-logo{
         border-radius: 209px;
-        border: 1px solid #ff830f;
+        border: 5px solid #ff830f;
     }
     .navbar{
         background-color: #252324; }
@@ -66,4 +66,11 @@ body{
         cursor: pointer;
         background-color: #ff830f;
         color: #252324;
+    }
+    .moods{
+        width: 60px;
+    }
+    .mood-background{
+        background-image: url("../images/Neon-Backgrounds.jpg");
+        background-size: 100%;
     }
