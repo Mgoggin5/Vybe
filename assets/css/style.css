@@ -1,4 +1,69 @@
-.jumbotron{
-    background-image: url("../images/VYBE.png");
-    height: 200px;
+body{
+    background-image: url("../images/background.jpg");
+    background-image: 100%; 
 }
+.jumbotron{
+    background-color: #252324;
+    border-radius: 209px;
+    }
+    #vybe-logo{
+        border-radius: 209px;
+        border: 1px solid #ff830f;
+    }
+    .navbar{
+        background-color: #252324; }
+    
+    #bar{    
+        color: #ff830f; 
+        font-family: 'Aladin', cursive;
+        font-size: 20px;
+    }
+    .line-color{
+        margin-top: 16px;
+        color: #ff830f;
+    }
+    #container1{
+        background-color: #252324; 
+        width: 75%;
+        height: 50%;
+    }
+    .form-font{
+        color: #ff830f;
+        text-align: left;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .btn-primary{
+        background-color: #252324;
+        color: #ff830f;
+        border:1px solid #ff830f;
+        padding: 20px;
+        border-radius: 30px;
+        font-family: 'Aladin', cursive;
+        font-size: 20px;
+
+        }
+    #start-btn{
+        margin-bottom: 20px;
+    }
+    .form-control{
+        border-radius: 15px;
+    }
+    #add-gif{
+        background-color: #252324;
+        color: #ff830f;
+        border:1px solid #ff830f;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+    #add-gif:hover{
+        cursor: pointer;
+        background-color: #ff830f;
+        color: #252324;
+    }
+    .btn-primary:hover{
+        cursor: pointer;
+        background-color: #ff830f;
+        color: #252324;
+    }
