@@ -9,13 +9,15 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>VYBE</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <title>VYBE_HOME_PAGE</title>
 </head>
 
 <body>
     <nav class="navbar navbar-default">
-        <div class="container">
+        <div class="container-fliud">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                     aria-controls="navbar">
@@ -29,64 +31,74 @@
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                    <a class="panel-font" id="bar" href="index.html">Home</a>
-                                </li>                   
-                        <li>
-                            <a class="panel-font" id="bar" href="about.html">About Us</a>
-                        </li>
-                        <li class="line-color" id="bar">|</li>
-                        <li>
-                            <a class="panel-font" id="bar" href="FAQ.html">FAQ</a>
-                        </li>
-                        <li class="line-color" id="bar">|</li>
-                        <li>
-                            <a class="panel-font" id="bar" href="contactus.html">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="bar" class="panel-font" href="index.html">Home</a>
+                    </li>
+                    <li class="line-color">|</li>
+                    <li>
+                        <a id="bar" class="panel-font" href="index.html">About</a>
+                    </li>
+                    <li class="line-color">|</li>
+                    <li>
+                        <a id="bar" class="panel-font" href="portfolio.html">Contact</a>
+                    </li>
+                    <li class="line-color">|</li>
+                    <li>
+                        <a id="bar" class="panel-font" href="contact.html">FAQ</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="container">
         <div class="form-row text-center">
             <div class="col-lg-12">
-                <div class="jumbotron">
+                <div id="vybe-logo" class="jumbotron">
                     <img class="vybe" src="assets/images/VYBE (1).png" alt="VYBE">
                 </div>
             </div>
+
         </div>
-    </div>
 
-    <div class="container">
-        <div class="form-row text-center">
-            <div class="col-md-12">
+        <!-- <div class="container"> -->
+        <div class="row">
+            <div class="col-md-12 text-center">
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <button id="start-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                     Click Here To Begin
                 </button>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
                         What would you like your music based upon?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">By The Weather</button>
-                    <button type="button" class="btn btn-primary">By My Mood</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                            <a href="weather.html">By The Weather</a>
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="mood.html">By My Mood</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
 
 
 
