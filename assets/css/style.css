@@ -43,6 +43,10 @@ body{
         font-size: 20px;
 
         }
+
+        .green {
+            background: green;
+        }
     #start-btn{
         margin-bottom: 20px;
     }
@@ -67,7 +71,7 @@ body{
         background-color: #ff830f;
         color: #252324;
     }
-    .moods{
+    .moods1, .moods2, .moods3, .moods4, .moods5{
         width: 60px;
     }
     .mood-background{
@@ -76,27 +80,3 @@ body{
     }
 
 
-    .ampstyle{
-        background-image: url("../images/ampbackground.jpg");
-        background-size: 100%;
-    }
-
-    .calmstyle{
-        background-image: url("../images/calmbackground.jpg");
-        background-size: 100%;
-    }
-
-    .focusstyle{
-        background-image: url("../images/focusbackground.jpg");
-        background-size: 100%;
-    }
-
-    .happystyle{
-        background-image: url("../images/happybackground.jpg");
-        background-size: 100%;
-    }
-
-    .mellowstyle{
-        background-image: url("../images/mellowbackground.jpg");
-        background-size: 100%;
-    }
