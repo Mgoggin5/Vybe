@@ -74,3 +74,29 @@ body{
         background-image: url("../images/Neon-Backgrounds.jpg");
         background-size: 100%;
     }
+
+
+    .ampstyle{
+        background-image: url("../images/ampbackground.jpg");
+        background-size: 100%;
+    }
+
+    .calmstyle{
+        background-image: url("../images/calmbackground.jpg");
+        background-size: 100%;
+    }
+
+    .focusstyle{
+        background-image: url("../images/focusbackground.jpg");
+        background-size: 100%;
+    }
+
+    .happystyle{
+        background-image: url("../images/happybackground.jpg");
+        background-size: 100%;
+    }
+
+    .mellowstyle{
+        background-image: url("../images/mellowbackground.jpg");
+        background-size: 100%;
+    }
