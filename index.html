@@ -5,14 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Spotify Test</title>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-  <script src="assets/javascript/scripts.js"></script>
+  <script src="assets/javascript/app.js"></script>
 </head>
 
 <body>
-  <button id="signIn">Sign In</button>
+  <div>
+    <div>
+      <h1>Artist Search</h1>
+      <form>
+        <section>
+          <label>Artist Search: </label>
+          <input id="artist" type="text">
+        </section>
+        <section>
+          <button id="search" type="submit">Search</button>
+        </section>
+      </form>
+    </div>
+    <div id="loggedin">
+    </div>
+
+    <input id="a" value="262375a7aef9447c9eecb14c996c2909" type="hidden">
+    <input id="b" value="5aa1b6948b0f4563945ed6d1fcc6cf11" type="hidden">
+
+    <div id="playlist-display">
+      <button id="playlist" type="submit">Get Playlist</button>
+    </div>
+  </div>
 </body>
 
 </html>
