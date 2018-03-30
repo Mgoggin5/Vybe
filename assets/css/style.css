@@ -82,4 +82,9 @@ body{
         background-image: url("../images/Neon-Backgrounds.jpg");
         background-size: 100%;
     }
+    .vybe{
+        border-radius: 209px;
+        width: 900px;
+        height: 400px;
+    }
   
