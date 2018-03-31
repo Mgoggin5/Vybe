@@ -65,44 +65,33 @@ $(document).ready(function() {
     });
   }
 
-  function displayPlaylist() {
+  function displayPlaylist(playlist) {
     if (!localStorage.getItem('token')) {
       getToken();
     } else {
-      $.ajax({
-        method: 'GET',
-        url:
-          'https://api.spotify.com/v1/users/12170685583/playlists/3KZ67wlum22eSF3n7jopRV',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      }).then(function(response) {
-        console.log(response);
+      var playlist = $('<iframe>');
 
-        var playlist = $('<iframe>');
+      playlist.attr(
+        'src',
+        'https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j'
+      );
 
-        playlist.attr(
-          'src',
-          'https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j'
-        );
+      playlist.attr('width', '300');
 
-        playlist.attr('width', '300');
+      playlist.attr('height', '380');
 
-        playlist.attr('height', '380');
+      playlist.attr('frameborder', '0');
 
-        playlist.attr('frameborder', '0');
+      playlist.attr('allowtransparency', 'true');
 
-        playlist.attr('allowtransparency', 'true');
-
-        $('#playlist-display').append(playlist);
-      });
+      $('#playlist-display').append(playlist);
     }
   }
 
-  $('#playlist').click(function() {
-    event.preventDefault();
-    displayPlaylist();
-  });
+  // $('#playlist').click(function() {
+  //   event.preventDefault();
+  //   displayPlaylist();
+  // });
   // var moods = ['Happy', 'Sad', 'Calm', 'Focus', 'Amp'];
 
   // var btnContainer = $('.btn-container');
