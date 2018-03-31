@@ -132,6 +132,10 @@ margin-left: 160px;
         width: 729px;
         margin-left: 122px;
     }
+    #vybe-logo{
+        width: 501px;
+        margin-left: 240px;
+    }
 }
 
       @media screen and (max-width:980px){
@@ -143,6 +147,12 @@ margin-left: 160px;
     }
     .col-xs-2 {
         width: 19.666667%;
+    }
+    .col-lg-6{
+        margin-left: -124px;
+    }
+    #vybe-logo{
+        margin-left: 153px;
     }
 }
     @media screen and (max-width:736px){
