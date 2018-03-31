@@ -69,52 +69,77 @@ $(document).ready(function() {
     if (!localStorage.getItem('token')) {
       getToken();
     } else {
-      var playlist = $('<iframe>');
+      var playlistWidget = $('<iframe>');
 
-      playlist.attr(
-        'src',
-        'https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j'
-      );
+      playlistWidget.attr('src', playlist);
 
-      playlist.attr('width', '300');
+      playlistWidget.css('display', 'block');
 
-      playlist.attr('height', '380');
+      playlistWidget.css('margin', '25px auto');
 
-      playlist.attr('frameborder', '0');
+      playlistWidget.attr('width', '640');
 
-      playlist.attr('allowtransparency', 'true');
+      playlistWidget.attr('height', '720');
 
-      $('#playlist-display').append(playlist);
+      playlistWidget.attr('frameborder', '0');
+
+      playlistWidget.attr('allowtransparency', 'true');
+
+      $('#playlist-display').append(playlistWidget);
     }
   }
 
-  // $('#playlist').click(function() {
-  //   event.preventDefault();
-  //   displayPlaylist();
-  // });
-  // var moods = ['Happy', 'Sad', 'Calm', 'Focus', 'Amp'];
+  function makeMoodBtns() {
+    var moods = ['Happy', 'Sad', 'Calm', 'Focus', 'Amp'];
 
-  // var btnContainer = $('.btn-container');
+    var userIDs = [
+      'spotify',
+      'funnybunny000000',
+      'spotify',
+      'spotify',
+      'spotify'
+    ];
 
-  // for (let i = 0; i < moods.length; i++) {
-  //   var mood = moods[i];
-  //   var btnWrapper = $("<div class='col-md-2'>");
-  //   var moodBtn = $('<button>' + mood + '</button>');
+    var playlistIDs = [
+      '2PXdUld4Ueio2pHcB6sM8j',
+      '4EoPt05ztUjVaujcWbUL2Z',
+      '37i9dQZF1DX6VdMW310YC7',
+      '37i9dQZF1DX6T5dWVv97mp',
+      '37i9dQZF1DX4eRPd9frC1m'
+    ];
 
-  //   moodBtn.on('click', function(e) {
-  //     var moodQuery = $(this).text();
-  //     console.log(moodQuery);
+    for (let i = 0; i < moods.length; i++) {
+      var btnWrapper = $("<div class='col-md-2'>");
+      var moodBtn = $('<button>');
 
-  //     var moodPlaylist =
-  //       'https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j';
+      moodBtn.text(moods[i]);
 
-  //     displayPlaylist(moodPlaylist);
-  //   });
+      moodBtn.addClass('mood-btn');
 
-  //   btnWrapper.append(moodBtn);
-  //   btnContainer.append(btnWrapper);
-  // }
+      moodBtn.attr('data-mood', moods[i]);
 
-  //When the page load, execute the authorizeApp function
+      moodBtn.attr(
+        'data-playlist',
+        'https://open.spotify.com/embed?uri=spotify%3Auser%3A' +
+          userIDs[i] +
+          '%3Aplaylist%3A' +
+          playlistIDs[i]
+      );
+
+      btnWrapper.append(moodBtn);
+      $('.btn-container').append(btnWrapper);
+    }
+  }
+
+  makeMoodBtns();
+
+  $(document.body).on('click', '.mood-btn', function() {
+    $('#playlist-display').empty();
+
+    var moodPlaylist = $(this).attr('data-playlist');
+
+    displayPlaylist(moodPlaylist);
+  });
+
   prepAuthorize();
 });
