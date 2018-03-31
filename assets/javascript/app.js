@@ -9,10 +9,10 @@ function getWeather() {
             method: "GET",
             url: weatherURL
         }).then(function (response) {
-            $('#weather-display').append(response.display_location.full);
-            $('#weather-display').append(response.temp_f);
+            $('#location-display').append(response.display_location.full);
+            $('#temperture-display').append(response.temp_f);
             $('#weather-display').append(response.weather);
-            $('#weather-display').append(response.icon_url);
+            $('#icon-display').append(response.icon_url);
         })
     })
 }
