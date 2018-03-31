@@ -5,8 +5,7 @@ $("#display-playlist").hide();
 $("#add-city").click(function(){
     $("#display-submit").hide();
     $("#display-weather").show();
-    $("#display-playlist").show();    
-
+    $("#display-playlist").show();  
 })
 
 

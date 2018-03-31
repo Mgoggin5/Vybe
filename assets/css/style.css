@@ -7,9 +7,9 @@ body{
 background-image: url("../images/whiteback.jpg");
 border-radius: 209px;
 padding: 0px;
-width: 900px;
-height: 400px;
-margin-left: 100px;
+width: 800px;
+height: 350px;
+margin-left: 160px;
 }
     #vybe-logo{
         border-radius: 209px;
@@ -90,11 +90,11 @@ margin-left: 100px;
     }
     .vybe{
         border-radius: 209px;
-        width: 900px;
-        height: 400px;
+        width: 800px;
+        height: 350px;
         border: 5px solid #ff830f;
     }
-    .face:hover {
+      .moods:hover {
         animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
@@ -118,3 +118,42 @@ margin-left: 100px;
           transform: translate3d(4px, 0, 0);
         }
       }
+      @media screen and (max-width:1024px){
+        .form-row{
+            margin-left: -92px;
+    }
+    .moods{
+        width: 100px;
+    }
+    .col-xs-2 {
+        width: 17.666667%;
+    }
+    .mood-background{
+        width: 729px;
+        margin-left: 122px;
+    }
+}
+
+      @media screen and (max-width:980px){
+        .form-row{
+            margin-left: -213px;
+    }
+    .moods{
+        width: 91px;
+    }
+    .col-xs-2 {
+        width: 19.666667%;
+    }
+}
+    @media screen and (max-width:736px){
+        
+    }
+    @media screen and (max-width:412px){
+        
+    }
+    @media screen and (max-width:375px){
+        
+    }
+    @media screen and (max-width:360px){
+        
+    }
