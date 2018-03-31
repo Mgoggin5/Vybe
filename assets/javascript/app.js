@@ -103,6 +103,28 @@ $(document).ready(function() {
     event.preventDefault();
     displayPlaylist();
   });
+  // var moods = ['Happy', 'Sad', 'Calm', 'Focus', 'Amp'];
+
+  // var btnContainer = $('.btn-container');
+
+  // for (let i = 0; i < moods.length; i++) {
+  //   var mood = moods[i];
+  //   var btnWrapper = $("<div class='col-md-2'>");
+  //   var moodBtn = $('<button>' + mood + '</button>');
+
+  //   moodBtn.on('click', function(e) {
+  //     var moodQuery = $(this).text();
+  //     console.log(moodQuery);
+
+  //     var moodPlaylist =
+  //       'https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j';
+
+  //     displayPlaylist(moodPlaylist);
+  //   });
+
+  //   btnWrapper.append(moodBtn);
+  //   btnContainer.append(btnWrapper);
+  // }
 
   //When the page load, execute the authorizeApp function
   prepAuthorize();
