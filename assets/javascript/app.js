@@ -131,7 +131,7 @@ $(document).ready(function() {
     }
   }
 
-  makeMoodBtns();
+  // makeMoodBtns();
 
   $(document.body).on('click', '.mood-btn', function() {
     $('#playlist-display').empty();
