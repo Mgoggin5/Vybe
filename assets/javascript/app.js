@@ -112,18 +112,18 @@ $(document).ready(function() {
 
     var userMoodIDs = [
       'spotify',
-      'funnybunny000000',
+      'Tylercoryj',
       'spotify',
-      'spotify',
-      'spotify'
+      '12167594447',
+      'digster.co.uk'
     ];
 
     var moodPlaylistIDs = [
-      '2PXdUld4Ueio2pHcB6sM8j',
-      '4EoPt05ztUjVaujcWbUL2Z',
-      '37i9dQZF1DX6VdMW310YC7',
-      '37i9dQZF1DX6T5dWVv97mp',
-      '37i9dQZF1DX4eRPd9frC1m'
+      '37i9dQZF1DX9u7XXOp0l5L',
+      '6V25z3STNb56BsUnO127Kl',
+      '37i9dQZF1DZ06evO07w8CY',
+      '5veFroK6xpskEjvhEyqFUM',
+      '12R8HZh3GHUw1c4sgPtu6x'
     ];
 
     for (let i = 0; i < moods.length; i++) {
