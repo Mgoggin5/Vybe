@@ -22,7 +22,7 @@ $(document).ready(function() {
         $.param({
           client_id: a,
           response_type: 'code',
-          redirect_uri: 'http://localhost:8080',
+          redirect_uri: 'https://alexscar99.github.io/Vybe',
           scopes: 'user-read-private user-read-email'
         });
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
-        redirect_uri: 'http://localhost:8080'
+        redirect_uri: 'https://alexscar99.github.io/Vybe'
       },
       headers: {
         Authorization: 'Basic ' + localStorage.getItem('auth_creds')
@@ -110,7 +110,6 @@ $(document).ready(function() {
   function makeMoodBtns() {
     var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
-
     var userMoodIDs = [
       'spotify',
       'Tylercoryj',
@@ -118,7 +117,6 @@ $(document).ready(function() {
       '12167594447',
       'digster.co.uk'
     ];
-
 
     var moodPlaylistIDs = [
       '37i9dQZF1DX9u7XXOp0l5L',
