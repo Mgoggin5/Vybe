@@ -6,8 +6,6 @@ $(document).ready(function() {
 
   $('#display-weather').hide();
 
-  // $('#display-playlist').hide();
-
   function prepAuthorize() {
     //Grab the hidden elements containing the values of the id and secret
     var a = $('#a').val();
