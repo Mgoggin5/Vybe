@@ -141,7 +141,8 @@ $(document).ready(function() {
         'https://open.spotify.com/embed?uri=spotify%3Auser%3A' +
           userMoodIDs[i] +
           '%3Aplaylist%3A' +
-          moodPlaylistIDs[i]
+          moodPlaylistIDs[i] +
+          '&theme=white'
       );
 
       btnWrapper.append(moodBtn);
