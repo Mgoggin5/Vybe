@@ -4,6 +4,10 @@ $(document).ready(function() {
 
   $('.music-choice-btn').hide();
 
+  $('#display-weather').hide();
+
+  $('#display-playlist').hide();
+
   function prepAuthorize() {
     //Grab the hidden elements containing the values of the id and secret
     var a = $('#a').val();
@@ -76,12 +80,6 @@ $(document).ready(function() {
       //Save the token returned into local storage
       localStorage.setItem('token', response.access_token);
       localStorage.setItem('refresh_token', response.refresh_token);
-
-      // if (localStorage.getItem('s_auth_code') !== null) {
-      //   $('.login-btn').hide();
-
-      //   $('.music-choice-btn').show();
-      // }
     });
   }
 
@@ -151,33 +149,6 @@ $(document).ready(function() {
     }
   }
 
-  // function getWeather() {
-  //   var city = $('#city')
-  //     .val()
-  //     .trim();
-  //   var state = $('#state')
-  //     .val()
-  //     .trim();
-  //   var weatherURL =
-  //     'http://api.wunderground.com/api/22c4d183e8562c2d/conditions/q/' +
-  //     state +
-  //     '/' +
-  //     city +
-  //     '.json';
-
-  //   $('#submit').click(function() {
-  //     $.ajax({
-  //       method: 'GET',
-  //       url: weatherURL
-  //     }).then(function(response) {
-  //       $('#location-display').append(response.display_location.full);
-  //       $('#temperture-display').append(response.temp_f);
-  //       $('#weather-display').append(response.weather);
-  //       $('#icon-display').append(response.icon_url);
-  //     });
-  //   });
-  // }
-
   $('#display-weather').hide();
   $('#display-playlist').hide();
 
@@ -217,7 +188,11 @@ $(document).ready(function() {
     });
   });
 
-  // makeMoodBtns();
+  $('#add-city').click(function() {
+    $('#display-submit').hide();
+    $('#display-weather').show();
+    $('#display-playlist').show();
+  });
 
   $(document.body).on('click', '.mood-btn', function() {
     $('#playlist-display').empty();
@@ -225,10 +200,6 @@ $(document).ready(function() {
     var moodPlaylist = $(this).attr('data-playlist');
 
     displayPlaylist(moodPlaylist);
-  });
-
-  $(document.body).on('click', '#add-city', function() {
-    getWeather();
   });
 
   prepAuthorize();
