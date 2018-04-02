@@ -110,6 +110,7 @@ $(document).ready(function() {
   function makeMoodBtns() {
     var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
+
     var userMoodIDs = [
       'spotify',
       'Tylercoryj',
@@ -117,6 +118,7 @@ $(document).ready(function() {
       '12167594447',
       'digster.co.uk'
     ];
+
 
     var moodPlaylistIDs = [
       '37i9dQZF1DX9u7XXOp0l5L',
