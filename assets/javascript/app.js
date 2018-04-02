@@ -90,13 +90,15 @@ $(document).ready(function() {
 
     playlistWidget.attr('src', playlist);
 
-    // playlistWidget.css('display', 'block');
+    playlistWidget.css('display', 'block');
 
-    // playlistWidget.css('margin', '25px auto');
+    playlistWidget.css('margin', '25px auto');
 
-    playlistWidget.attr('width', '640');
+    playlistWidget.css('border-radius', '10px');
 
-    playlistWidget.attr('height', '720');
+    playlistWidget.attr('width', '580');
+
+    playlistWidget.attr('height', '700');
 
     playlistWidget.attr('frameborder', '0');
 
@@ -250,17 +252,14 @@ $(document).ready(function() {
     $(function() {
       makeMoodBtns();
     });
+    $(document.body).on('click', '.mood-img', function() {
+      $('.display-playlist').empty();
+
+      var moodPlaylist = $(this).attr('data-playlist');
+
+      displayPlaylist(moodPlaylist);
+    });
   }
-
-  $(document.body).on('click', '.mood-img', function() {
-    var target = $(event.target);
-
-    $('.display-playlist').empty();
-
-    var moodPlaylist = $(target).attr('data-playlist');
-
-    displayPlaylist(moodPlaylist);
-  });
 
   prepAuthorize();
 });
