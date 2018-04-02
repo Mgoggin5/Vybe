@@ -69,10 +69,12 @@ body{
     }
     .moods1, .moods2, .moods3, .moods4, .moods5{
         width: 60px;
+        float: left;
     }
     .mood-background{
         background-image: url("../images/Neon-Backgrounds.jpg");
         background-size: 100%;
+        width: 400px;
     }
     body{
         background-image: url("../images/whiteback.jpg");
