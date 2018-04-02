@@ -178,13 +178,48 @@ $(document).ready(function() {
       method: 'GET'
     }).then(function(response) {
       console.log(response);
+      // $('#location-display').append(response.display_location.full);
+      //       $('#temperture-display').append(response.temp_f);
+      //       $('#weather-display').append(response.weather);
+      //       $('#icon-display').append(response.icon_url);
       var data = response.current_observation;
-      var temp = data.dewpoint_string;
+      // var temp = data.dewpoint_string;
 
-      var p = $('<p>').html(data.display_location.full);
-      var temprature = $('<p>').text(temp);
+      var forecast = response.forecast.simpleforecast.forecastday[0];
 
-      $('#location-display').append(p, temprature);
+      var highTemp = forecast.high.fahrenheit;
+
+      var lowTemp = forecast.low.fahrenheit;
+
+      var conditions = forecast.conditions;
+
+      var iconURL = forecast.icon_url;
+
+      var p = $('<p style="color: white; text-align: center;">').html(
+        data.display_location.full
+      );
+      var highTemperature = $(
+        '<p style="color: white; text-align: center;">'
+      ).text('High: ' + highTemp + '°');
+      var lowTemperature = $(
+        '<p style="color: white; text-align: center;">'
+      ).text('Low: ' + lowTemp + '°');
+
+      var weather = $('<p style="color: white; text-align: center;">').text(
+        'Conditions: ' + conditions
+      );
+      var weatherIcon = $('<img style="display: block; margin: 0 auto;">').attr(
+        'src',
+        iconURL
+      );
+
+      $('#location-display').append(
+        p,
+        highTemperature,
+        lowTemperature,
+        weather,
+        weatherIcon
+      );
     });
   });
 
