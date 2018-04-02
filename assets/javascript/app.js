@@ -94,9 +94,9 @@ $(document).ready(function() {
 
     playlistWidget.css('margin', '25px auto');
 
-    playlistWidget.css('border-radius', '10px');
+    playlistWidget.css('border-radius', '12px');
 
-    playlistWidget.attr('width', '580');
+    playlistWidget.attr('width', '500');
 
     playlistWidget.attr('height', '700');
 
@@ -247,7 +247,7 @@ $(document).ready(function() {
     $('#display-playlist').show();
   });
 
-  // if on mood page, run function
+  // if on mood page:
   if ($('.mood-background').length > 0) {
     $(function() {
       makeMoodBtns();
@@ -258,6 +258,13 @@ $(document).ready(function() {
       var moodPlaylist = $(this).attr('data-playlist');
 
       displayPlaylist(moodPlaylist);
+
+      $('html,body').animate(
+        {
+          scrollTop: $('.playlist-display').offset().top
+        },
+        'slow'
+      );
     });
   }
 
