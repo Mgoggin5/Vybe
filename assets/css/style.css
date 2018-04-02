@@ -43,10 +43,6 @@ body{
         font-size: 20px;
 
         }
-
-        .green {
-            background: green;
-        }
     #start-btn{
         margin-bottom: 20px;
     }
@@ -78,5 +74,163 @@ body{
         background-image: url("../images/Neon-Backgrounds.jpg");
         background-size: 100%;
     }
-
-
+    body{
+        background-image: url("../images/whiteback.jpg");
+        background-image: 100%; 
+        
+    }
+    #logo-size{
+    background-image: url("../images/whiteback.jpg");
+    border-radius: 209px;
+    padding: 0px;
+    width: 800px;
+    height: 350px;
+    margin-left: 160px;
+    }
+      
+    #vybe-logo{
+            border-radius: 209px;
+            border: 5px solid #ff830f;
+            background-color: #252324;
+            
+        }
+        .navbar{
+            background-color: #252324; 
+        }
+        
+        #bar{    
+            color: #ff830f; 
+            font-family: 'Aladin', cursive;
+            font-size: 20px;
+        }
+        .line-color{
+            margin-top: 16px;
+            color: #ff830f;
+        }
+        #container1{
+            background-color: #252324; 
+            width: 75%;
+            height: 50%;
+        }
+        .form-font{
+            color: #ff830f;
+            text-align: left;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .btn-primary{
+            background-color: #252324;
+            color: #ff830f;
+            border:1px solid #ff830f;
+            padding: 20px;
+            border-radius: 30px;
+            font-family: 'Aladin', cursive;
+            font-size: 20px;
+    
+            }
+        #start-btn{
+            margin-bottom: 20px;
+        }
+        .form-control{
+            border-radius: 15px;
+        }
+        #add-city{
+            background-color: #252324;
+            color: #ff830f;
+            border:1px solid #ff830f;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+        #add-city:focus{
+            outline: 0;
+        }
+        #add-city:hover{
+            cursor: pointer;
+            background-color: #ff830f;
+            color: #252324;
+        }
+        .btn-primary:hover{
+            cursor: pointer;
+            background-color: #ff830f;
+            color: #252324;
+        }
+        .btn-primary:focus{
+            outline: 0;
+        }       
+        .vybe{
+            border-radius: 209px;
+            width: 800px;
+            height: 350px;
+            border: 5px solid #ff830f;
+        }
+          .moods:hover {
+            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          
+          @keyframes shake {
+            10%, 90% {
+              transform: translate3d(-1px, 0, 0);
+            }
+            
+            20%, 80% {
+              transform: translate3d(2px, 0, 0);
+            }
+          
+            30%, 50%, 70% {
+              transform: translate3d(-4px, 0, 0);
+            }
+          
+            40%, 60% {
+              transform: translate3d(4px, 0, 0);
+            }
+          }
+          @media screen and (max-width:1024px){
+            .form-row{
+                margin-left: -92px;
+        }
+        .moods{
+            width: 100px;
+        }
+        .col-xs-2 {
+            width: 17.666667%;
+        }
+        .mood-background{
+            width: 729px;
+            margin-left: 122px;
+        }
+    
+          @media screen and (max-width:980px){
+            .form-row{
+                margin-left: -213px;
+        }
+        .moods{
+            width: 91px;
+        }
+        .col-xs-2 {
+            width: 19.666667%;
+        }
+       .col-lg-6{
+           margin-left: -124px;
+       }
+       #vybe-logo{
+           margin-left: 153px;
+      }
+    
+        @media screen and (max-width:736px){
+            
+        }
+        @media screen and (max-width:412px){
+            
+        }
+        @media screen and (max-width:375px){
+            
+        }
+        @media screen and (max-width:360px){
+            
+        }
+    }
+}
