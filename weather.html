@@ -18,12 +18,12 @@
     <!-- or -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
         crossorigin="anonymous">
-    <title>VYBE_HOME_PAGE</title>
+    <title>Weather</title>
 </head>
 
 <body>
     <nav class="navbar navbar-default">
-        <div class="container-fliud">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                     aria-controls="navbar">
@@ -57,24 +57,15 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="form-row text-center">
             <div class="col-lg-12">
                 <div id="logo-size" class="jumbotron">
-                    <img class="vybe face animated infinite pulse" src="assets/images/VYBE_LOGO.png">
+                    <img class="vybe face animated infinite pulse" src="assets/images/VYBE_LOGO.png" alt="VYBE">
                 </div>
             </div>
 
-        </div>
-
-        <!-- <div class="container"> -->
-        <div class="row">
-            <div class="col-md-12 text-center">
-
-                <button id="start-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Login to Spotify
-                </button>
-            </div>
         </div>
 
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -90,24 +81,67 @@
                         What would you like your music based upon?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">
-                            <a href="weather.html">By The Weather</a>
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            <a href="mood.html">By My Mood</a>
-                        </button>
+                        <button type="button" class="btn btn-primary">By The Weather</button>
+                        <button type="button" class="btn btn-primary">By My Mood</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="display-submit" class="row">
+            <div class="col-lg-3">
+
+            </div>
+            <div class="col-lg-6">
+                <div id="vybe-logo" class="jumbotron">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="form-font" for="exampleInputEmail1">City</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter City" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-font" for="exampleInputPassword1">State</label>
+                            <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter State" />
+                        </div>
+                        <input id="add-city" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="display-weather" class="row">
+            <div class="col-lg-2">
+                <div id="location-display"></div>
+                <div id="temperture-display"></div>
+                <div id="weather-display"></div>
+                <div id="icon-display"></div>
+
+            </div>
+            <div class="col-lg-8">
+                <div id="vybe-logo" class="jumbotron">
+
+                </div>
+            </div>
+        </div>
+        <div id="display-playlist" class="row">
+            <div class="col-lg-2">
+
+
+            </div>
+            <div class="col-lg-8">
+                <div id="vybe-logo" class="jumbotron">
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
 
 
-
-
     <script type="text/javascript" src="assets/javascript/logic.js"></script>
+
+
 
 </body>
 
