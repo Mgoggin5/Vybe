@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   $('#display-weather').hide();
 
-  $('#display-playlist').hide();
+  // $('#display-playlist').hide();
 
   function prepAuthorize() {
     //Grab the hidden elements containing the values of the id and secret
@@ -84,33 +84,34 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(playlist) {
-    if (!localStorage.getItem('token')) {
-      getToken();
-    } else {
-      var playlistWidget = $('<iframe>');
+    console.log(playlist);
 
-      playlistWidget.attr('src', playlist);
+    var playlistWidget = $('<iframe>');
 
-      playlistWidget.css('display', 'block');
+    playlistWidget.attr('src', playlist);
 
-      playlistWidget.css('margin', '25px auto');
+    playlistWidget.css('display', 'block');
 
-      playlistWidget.attr('width', '640');
+    playlistWidget.css('margin', '25px auto');
 
-      playlistWidget.attr('height', '720');
+    playlistWidget.css('border-radius', '12px');
 
-      playlistWidget.attr('frameborder', '0');
+    playlistWidget.attr('width', '500');
 
-      playlistWidget.attr('allowtransparency', 'true');
+    playlistWidget.attr('height', '700');
 
-      $('#playlist-display').append(playlistWidget);
-    }
+    playlistWidget.attr('frameborder', '0');
+
+    playlistWidget.attr('allowtransparency', 'true');
+
+    $('.display-playlist').append(playlistWidget);
   }
 
   function makeMoodBtns() {
-    var moods = ['Happy', 'Sad', 'Calm', 'Focus', 'Amp'];
+    var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
-    var userIDs = [
+
+    var userMoodIDs = [
       'spotify',
       'Tylercoryj',
       'spotify',
@@ -118,7 +119,8 @@ $(document).ready(function() {
       'digster.co.uk'
     ];
 
-    var playlistIDs = [
+
+    var moodPlaylistIDs = [
       '37i9dQZF1DX9u7XXOp0l5L',
       '6V25z3STNb56BsUnO127Kl',
       '37i9dQZF1DZ06evO07w8CY',
@@ -127,26 +129,32 @@ $(document).ready(function() {
     ];
 
     for (let i = 0; i < moods.length; i++) {
-      var btnWrapper = $("<div class='col-md-2'>");
-      var moodBtn = $('<button>');
+      var btnWrapper = $("<div class='col-md-2 mood-images'>");
+      var moodBtn = $('<img>');
 
       moodBtn.text(moods[i]);
 
-      moodBtn.addClass('mood-btn');
+      moodBtn.addClass('mood-img');
 
-      moodBtn.attr('data-mood', moods[i]);
+      moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
+
+      moodBtn.attr('alt', moods[i]);
 
       moodBtn.attr(
         'data-playlist',
         'https://open.spotify.com/embed?uri=spotify%3Auser%3A' +
-          userIDs[i] +
+          userMoodIDs[i] +
           '%3Aplaylist%3A' +
-          playlistIDs[i]
+          moodPlaylistIDs[i]
       );
 
       btnWrapper.append(moodBtn);
-      $('.btn-container').append(btnWrapper);
+      $('.mood-row').append(btnWrapper);
     }
+  }
+
+  function weatherPlaylist() {
+    displayPlaylist(URL);
   }
 
   $('#display-weather').hide();
@@ -178,12 +186,8 @@ $(document).ready(function() {
       method: 'GET'
     }).then(function(response) {
       console.log(response);
-      // $('#location-display').append(response.display_location.full);
-      //       $('#temperture-display').append(response.temp_f);
-      //       $('#weather-display').append(response.weather);
-      //       $('#icon-display').append(response.icon_url);
+
       var data = response.current_observation;
-      // var temp = data.dewpoint_string;
 
       var forecast = response.forecast.simpleforecast.forecastday[0];
 
@@ -200,10 +204,10 @@ $(document).ready(function() {
       );
       var highTemperature = $(
         '<p style="color: white; text-align: center;">'
-      ).text('High: ' + highTemp + '°');
+      ).text('High: ' + highTemp + '° F');
       var lowTemperature = $(
         '<p style="color: white; text-align: center;">'
-      ).text('Low: ' + lowTemp + '°');
+      ).text('Low: ' + lowTemp + '° F');
 
       var weather = $('<p style="color: white; text-align: center;">').text(
         'Conditions: ' + conditions
@@ -220,6 +224,22 @@ $(document).ready(function() {
         weather,
         weatherIcon
       );
+
+      weatherUserIDs = ['id1', 'id2', 'id3', 'id4', 'id5'];
+
+      weatherPlaylistIDs = [
+        'playlist1',
+        'playlist2',
+        'playlist3',
+        'playlist4',
+        'playlist5'
+      ];
+
+      if (conditions === 'Clear') {
+        displayPlaylist(playlist);
+
+        $('#display-playlist');
+      }
     });
   });
 
@@ -229,13 +249,26 @@ $(document).ready(function() {
     $('#display-playlist').show();
   });
 
-  $(document.body).on('click', '.mood-btn', function() {
-    $('#playlist-display').empty();
+  // if on mood page:
+  if ($('.mood-background').length > 0) {
+    $(function() {
+      makeMoodBtns();
+    });
+    $(document.body).on('click', '.mood-img', function() {
+      $('.display-playlist').empty();
 
-    var moodPlaylist = $(this).attr('data-playlist');
+      var moodPlaylist = $(this).attr('data-playlist');
 
-    displayPlaylist(moodPlaylist);
-  });
+      displayPlaylist(moodPlaylist);
+
+      $('html,body').animate(
+        {
+          scrollTop: $('.playlist-display').offset().top
+        },
+        'slow'
+      );
+    });
+  }
 
   prepAuthorize();
 });
