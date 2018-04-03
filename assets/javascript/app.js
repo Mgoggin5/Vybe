@@ -83,7 +83,7 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(user, playlist) {
-    refreshToken();
+    // refreshToken();
 
     // populating iframe
     // var playlistWidget = $('<iframe>');
@@ -113,7 +113,7 @@ $(document).ready(function() {
       url:
         'https://api.spotify.com/v1/users/' + user + '/playlists/' + playlist,
       headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('refresh_token')
+        Authorization: 'Bearer ' + localStorage.getItem('token')
       }
     }).then(function(response) {
       var playlistURI = response.href;
