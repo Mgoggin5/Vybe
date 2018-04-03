@@ -21,7 +21,8 @@ $(document).ready(function() {
           client_id: a,
           redirect_uri: 'https://alexscar99.github.io/Vybe/',
           scope: 'user-read-private user-read-email',
-          response_type: 'token'
+          response_type: 'token',
+          state: 123
           // redirect_uri: 'http://localhost:8080',
         });
 
