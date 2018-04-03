@@ -76,6 +76,7 @@ $(document).ready(function() {
         Authorization: 'Basic ' + localStorage.getItem('auth_creds')
       }
     }).then(function(response) {
+      console.log(response);
       //Save the token returned into local storage
       localStorage.setItem('token', response.access_token);
       localStorage.setItem('refresh_token', response.refresh_token);
@@ -83,7 +84,7 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(user, playlist) {
-    getToken();
+    // getToken();
 
     // populating iframe
     // var playlistWidget = $('<iframe>');
