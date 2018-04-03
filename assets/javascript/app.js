@@ -41,48 +41,47 @@ $(document).ready(function() {
   function getToken() {
     var params = new URLSearchParams(location.search.slice(1));
 
-    if (localStorage.getItem('s_auth_code') !== null) {
+    if (localStorage.getItem('token') !== null) {
       $('.login-btn').hide();
 
       $('.music-choice-btn').show();
     }
 
-    if (params.get('code')) {
-      var code = params.get('code');
+    if (params.get('access_token')) {
+      var access_token = params.get('access_token');
 
-      localStorage.setItem('s_auth_code', code);
+      localStorage.setItem('s_auth_code', access_token);
+      localStorage.setItem('token', access_token);
 
-      if (localStorage.getItem('s_auth_code') !== null) {
+      if (localStorage.getItem('token') !== null) {
         $('.login-btn').hide();
 
         $('.music-choice-btn').show();
       }
-
-      refreshToken();
     }
   }
 
-  function refreshToken() {
-    $.ajax({
-      method: 'POST',
-      url: 'https://accounts.spotify.com/api/token',
-      data: {
-        grant_type: 'authorization_code',
-        code: localStorage.getItem('s_auth_code'),
-        // response_type: 'token',
-        redirect_uri: 'https://alexscar99.github.io/Vybe/'
-        // redirect_uri: 'http://localhost:8080'
-      },
-      headers: {
-        Authorization: 'Basic ' + localStorage.getItem('auth_creds')
-      }
-    }).then(function(response) {
-      // console.log(response);
-      //Save the token returned into local storage
-      localStorage.setItem('token', response.access_token);
-      localStorage.setItem('refresh_token', response.refresh_token);
-    });
-  }
+  // function refreshToken() {
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: 'https://accounts.spotify.com/api/token',
+  //     data: {
+  //       grant_type: 'authorization_code',
+  //       code: localStorage.getItem('s_auth_code'),
+  //       // response_type: 'token',
+  //       redirect_uri: 'https://alexscar99.github.io/Vybe/'
+  //       // redirect_uri: 'http://localhost:8080'
+  //     },
+  //     headers: {
+  //       Authorization: 'Basic ' + localStorage.getItem('auth_creds')
+  //     }
+  //   }).then(function(response) {
+  //     // console.log(response);
+  //     //Save the token returned into local storage
+  //     localStorage.setItem('token', response.access_token);
+  //     localStorage.setItem('refresh_token', response.refresh_token);
+  // });
+  // }
 
   function displayPlaylist(user, playlist) {
     // getToken();
