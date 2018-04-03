@@ -83,7 +83,7 @@ $(document).ready(function() {
     });
   }
 
-  function displayPlaylist(user, playist) {
+  function displayPlaylist(user, playlist) {
     // getToken();
 
     // refreshToken();
