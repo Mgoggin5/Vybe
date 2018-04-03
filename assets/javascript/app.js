@@ -20,7 +20,8 @@ $(document).ready(function() {
         $.param({
           client_id: a,
           response_type: 'code',
-          redirect_uri: 'https://alexscar99.github.io/Vybe/',
+          redirect_uri: 'http://alexscar99.github.io/Vybe/',
+          // redirect_uri: 'http://localhost:8080',
           scopes: 'user-read-private user-read-email'
         });
 
@@ -69,7 +70,8 @@ $(document).ready(function() {
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
-        redirect_uri: 'https://alexscar99.github.io/Vybe/'
+        redirect_uri: 'http://alexscar99.github.io/Vybe/'
+        // redirect_uri: 'http://localhost:8080'
       },
       headers: {
         Authorization: 'Basic ' + localStorage.getItem('auth_creds')
@@ -82,71 +84,77 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(playlist) {
-    console.log(playlist);
+    if (!localStorage.getItem('token')) {
+      authorizeApp();
+    } else {
+      var playlistWidget = $('<iframe>');
 
-    var playlistWidget = $('<iframe>');
+      playlistWidget.attr('src', playlist);
 
-    playlistWidget.attr('src', playlist);
+      playlistWidget.css('display', 'block');
 
-    playlistWidget.css('display', 'block');
+      playlistWidget.css('margin', '25px auto');
 
-    playlistWidget.css('margin', '25px auto');
+      playlistWidget.css('border-radius', '12px');
 
-    playlistWidget.css('border-radius', '12px');
+      playlistWidget.attr('width', '500');
 
-    playlistWidget.attr('width', '500');
+      playlistWidget.attr('height', '700');
 
-    playlistWidget.attr('height', '700');
+      playlistWidget.attr('frameborder', '0');
 
-    playlistWidget.attr('frameborder', '0');
+      playlistWidget.attr('allowtransparency', 'true');
 
-    playlistWidget.attr('allowtransparency', 'true');
-
-    $('.display-playlist').append(playlistWidget);
+      $('.display-playlist').append(playlistWidget);
+    }
   }
 
   function makeMoodBtns() {
-    var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
+    if (!localStorage.getItem('token')) {
+      authorizeApp();
+    } else {
+      var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
-    var userMoodIDs = [
-      'spotify',
-      'Tylercoryj',
-      'spotify',
-      '12167594447',
-      'digster.co.uk'
-    ];
+      var userMoodIDs = [
+        'spotify',
+        'Tylercoryj',
+        'spotify',
+        '12167594447',
+        'digster.co.uk'
+      ];
 
-    var moodPlaylistIDs = [
-      '37i9dQZF1DX9u7XXOp0l5L',
-      '6V25z3STNb56BsUnO127Kl',
-      '37i9dQZF1DZ06evO07w8CY',
-      '5veFroK6xpskEjvhEyqFUM',
-      '12R8HZh3GHUw1c4sgPtu6x'
-    ];
+      var moodPlaylistIDs = [
+        '37i9dQZF1DX9u7XXOp0l5L',
+        '6V25z3STNb56BsUnO127Kl',
+        '37i9dQZF1DZ06evO07w8CY',
+        '5veFroK6xpskEjvhEyqFUM',
+        '12R8HZh3GHUw1c4sgPtu6x'
+      ];
 
-    for (let i = 0; i < moods.length; i++) {
-      var btnWrapper = $("<div class='col-md-2 mood-images'>");
-      var moodBtn = $('<img>');
+      for (let i = 0; i < moods.length; i++) {
+        var btnWrapper = $("<div class='col-md-2 mood-images'>");
+        var moodBtn = $('<img>');
 
-      moodBtn.text(moods[i]);
+        moodBtn.text(moods[i]);
 
-      moodBtn.addClass('mood-img');
+        moodBtn.addClass('mood-img');
 
-      moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
+        moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
 
-      moodBtn.attr('alt', moods[i]);
+        moodBtn.attr('alt', moods[i]);
 
-      moodBtn.attr(
-        'data-playlist',
-        'https://open.spotify.com/embed?uri=spotify%3Auser%3A' +
-          userMoodIDs[i] +
-          '%3Aplaylist%3A' +
-          moodPlaylistIDs[i] +
-          '&theme=white'
-      );
+        moodBtn.attr(
+          'data-playlist',
+          'https://open.spotify.com/embed?uri=spotify:user:' +
+            userMoodIDs[i] +
+            ':playlist:' +
+            moodPlaylistIDs[i] +
+            '&theme=white'
+        );
 
-      btnWrapper.append(moodBtn);
-      $('.mood-row').append(btnWrapper);
+        btnWrapper.append(moodBtn);
+        $('.mood-row').append(btnWrapper);
+      }
     }
   }
 
