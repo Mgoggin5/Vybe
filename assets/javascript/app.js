@@ -65,8 +65,7 @@ $(document).ready(function() {
   function refreshToken() {
     $.ajax({
       method: 'POST',
-      url:
-        'https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token',
+      url: 'https://accounts.spotify.com/api/token',
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
