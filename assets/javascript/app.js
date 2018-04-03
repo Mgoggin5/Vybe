@@ -65,8 +65,7 @@ $(document).ready(function() {
   function refreshToken() {
     $.ajax({
       method: 'POST',
-      url:
-        'https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token',
+      url: 'https://accounts.spotify.com/api/token',
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
@@ -114,7 +113,7 @@ $(document).ready(function() {
       url:
         'https://api.spotify.com/v1/users/' + user + '/playlists/' + playlist,
       headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: 'Bearer ' + localStorage.getItem('refresh_token')
       }
     }).then(function(response) {
       var playlistURI = response.href;
