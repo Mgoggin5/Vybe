@@ -84,77 +84,77 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(playlist) {
-    if (!localStorage.getItem('token')) {
-      authorizeApp();
-    } else {
-      var playlistWidget = $('<iframe>');
+    // getToken();
 
-      playlistWidget.attr('src', playlist);
+    refreshToken();
 
-      playlistWidget.css('display', 'block');
+    var playlistWidget = $('<iframe>');
 
-      playlistWidget.css('margin', '25px auto');
+    playlistWidget.attr('src', playlist);
 
-      playlistWidget.css('border-radius', '12px');
+    playlistWidget.css('display', 'block');
 
-      playlistWidget.attr('width', '500');
+    playlistWidget.css('margin', '25px auto');
 
-      playlistWidget.attr('height', '700');
+    playlistWidget.css('border-radius', '12px');
 
-      playlistWidget.attr('frameborder', '0');
+    playlistWidget.attr('width', '500');
 
-      playlistWidget.attr('allowtransparency', 'true');
+    playlistWidget.attr('height', '700');
 
-      $('.display-playlist').append(playlistWidget);
-    }
+    playlistWidget.attr('frameborder', '0');
+
+    playlistWidget.attr('allowtransparency', 'true');
+
+    $('.display-playlist').append(playlistWidget);
   }
 
   function makeMoodBtns() {
-    if (!localStorage.getItem('token')) {
-      authorizeApp();
-    } else {
-      var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
+    // getToken();
 
-      var userMoodIDs = [
-        'spotify',
-        'Tylercoryj',
-        'spotify',
-        '12167594447',
-        'digster.co.uk'
-      ];
+    refreshToken();
 
-      var moodPlaylistIDs = [
-        '37i9dQZF1DX9u7XXOp0l5L',
-        '6V25z3STNb56BsUnO127Kl',
-        '37i9dQZF1DZ06evO07w8CY',
-        '5veFroK6xpskEjvhEyqFUM',
-        '12R8HZh3GHUw1c4sgPtu6x'
-      ];
+    var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
-      for (let i = 0; i < moods.length; i++) {
-        var btnWrapper = $("<div class='col-md-2 mood-images'>");
-        var moodBtn = $('<img>');
+    var userMoodIDs = [
+      'spotify',
+      'Tylercoryj',
+      'spotify',
+      '12167594447',
+      'digster.co.uk'
+    ];
 
-        moodBtn.text(moods[i]);
+    var moodPlaylistIDs = [
+      '37i9dQZF1DX9u7XXOp0l5L',
+      '6V25z3STNb56BsUnO127Kl',
+      '37i9dQZF1DZ06evO07w8CY',
+      '5veFroK6xpskEjvhEyqFUM',
+      '12R8HZh3GHUw1c4sgPtu6x'
+    ];
 
-        moodBtn.addClass('mood-img');
+    for (let i = 0; i < moods.length; i++) {
+      var btnWrapper = $("<div class='col-md-2 mood-images'>");
+      var moodBtn = $('<img>');
 
-        moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
+      moodBtn.text(moods[i]);
 
-        moodBtn.attr('alt', moods[i]);
+      moodBtn.addClass('mood-img');
 
-        moodBtn.attr(
-          'data-playlist',
-          'https://open.spotify.com/embed?uri=spotify:user:' +
-            userMoodIDs[i] +
-            ':playlist:' +
-            moodPlaylistIDs[i] +
-            '&theme=white'
-        );
+      moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
 
-        btnWrapper.append(moodBtn);
-        $('.mood-row').append(btnWrapper);
-      }
+      moodBtn.attr('alt', moods[i]);
+
+      moodBtn.attr(
+        'data-playlist',
+        'https://open.spotify.com/embed?uri=spotify:user:' +
+          userMoodIDs[i] +
+          ':playlist:' +
+          moodPlaylistIDs[i] +
+          '&theme=white'
+      );
+
+      btnWrapper.append(moodBtn);
+      $('.mood-row').append(btnWrapper);
     }
   }
 
@@ -256,9 +256,8 @@ $(document).ready(function() {
 
   // if on mood page:
   if ($('.mood-background').length > 0) {
-    $(function() {
-      makeMoodBtns();
-    });
+    makeMoodBtns();
+
     $(document.body).on('click', '.mood-img', function() {
       $('.display-playlist').empty();
 
