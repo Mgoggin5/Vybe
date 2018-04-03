@@ -83,30 +83,64 @@ $(document).ready(function() {
     });
   }
 
-  function displayPlaylist(playlist) {
+  function displayPlaylist(user, playist) {
     // getToken();
 
-    refreshToken();
+    // refreshToken();
 
-    var playlistWidget = $('<iframe>');
+    // populating iframe
+    // var playlistWidget = $('<iframe>');
 
-    playlistWidget.attr('src', playlist);
+    // playlistWidget.attr('src', playlist);
 
-    playlistWidget.css('display', 'block');
+    // playlistWidget.css('display', 'block');
 
-    playlistWidget.css('margin', '25px auto');
+    // playlistWidget.css('margin', '25px auto');
 
-    playlistWidget.css('border-radius', '12px');
+    // playlistWidget.css('border-radius', '12px');
 
-    playlistWidget.attr('width', '500');
+    // playlistWidget.attr('width', '500');
 
-    playlistWidget.attr('height', '700');
+    // playlistWidget.attr('height', '700');
 
-    playlistWidget.attr('frameborder', '0');
+    // playlistWidget.attr('frameborder', '0');
 
-    playlistWidget.attr('allowtransparency', 'true');
+    // playlistWidget.attr('allowtransparency', 'true');
 
-    $('.display-playlist').append(playlistWidget);
+    // $('.display-playlist').append(playlistWidget);
+
+    // AJAX call for playlist
+
+    $.ajax({
+      method: 'GET',
+      url:
+        'https://api.spotify.com/v1/users/' + user + '/playlists/' + playlist,
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }
+    }).then(function(response) {
+      var playlistURI = response.href;
+
+      var playlistWidget = $('<iframe>');
+
+      playlistWidget.attr('src', playlistURI);
+
+      playlistWidget.css('display', 'block');
+
+      playlistWidget.css('margin', '25px auto');
+
+      playlistWidget.css('border-radius', '12px');
+
+      playlistWidget.attr('width', '500');
+
+      playlistWidget.attr('height', '700');
+
+      playlistWidget.attr('frameborder', '0');
+
+      playlistWidget.attr('allowtransparency', 'true');
+
+      $('.display-playlist').append(playlistWidget);
+    });
   }
 
   function makeMoodBtns() {
@@ -144,14 +178,15 @@ $(document).ready(function() {
 
       moodBtn.attr('alt', moods[i]);
 
-      moodBtn.attr(
-        'data-playlist',
-        'https://open.spotify.com/embed?uri=spotify:user:' +
-          userMoodIDs[i] +
-          ':playlist:' +
-          moodPlaylistIDs[i] +
-          '&theme=white'
-      );
+      moodBtn.attr('data-user', userMoodIDs[i]);
+
+      moodBtn.attr('data-playlist', moodPlaylistIDs[i]);
+      // 'https://open.spotify.com/embed?uri=spotify:user:' +
+      //   userMoodIDs[i] +
+      //   ':playlist:' +
+      //   moodPlaylistIDs[i] +
+      //   '&theme=white'
+      // );
 
       btnWrapper.append(moodBtn);
       $('.mood-row').append(btnWrapper);
@@ -261,9 +296,11 @@ $(document).ready(function() {
     $(document.body).on('click', '.mood-img', function() {
       $('.display-playlist').empty();
 
-      var moodPlaylist = $(this).attr('data-playlist');
+      var userID = $(this).attr('data-user');
 
-      displayPlaylist(moodPlaylist);
+      var playlistID = $(this).attr('data-playlist');
+
+      displayPlaylist(userID, playlistID);
 
       $('html,body').animate(
         {
