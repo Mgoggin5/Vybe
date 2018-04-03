@@ -84,9 +84,7 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(user, playlist) {
-    // getToken();
-
-    // refreshToken();
+    refreshToken();
 
     // populating iframe
     // var playlistWidget = $('<iframe>');
