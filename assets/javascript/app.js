@@ -83,7 +83,7 @@ $(document).ready(function() {
   }
 
   function displayPlaylist(user, playlist) {
-    // refreshToken();
+    getToken();
 
     // populating iframe
     // var playlistWidget = $('<iframe>');
@@ -143,7 +143,7 @@ $(document).ready(function() {
   function makeMoodBtns() {
     // getToken();
 
-    refreshToken();
+    // refreshToken();
 
     var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
