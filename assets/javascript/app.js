@@ -16,7 +16,7 @@ $(document).ready(function() {
       //Use the id and secret to create the base64 string necessary to
       //authenticate
       var requestObject =
-        'https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/authorize?' +
+        'https://accounts.spotify.com/authorize?' +
         $.param({
           client_id: a,
           response_type: 'code',
@@ -65,7 +65,8 @@ $(document).ready(function() {
   function refreshToken() {
     $.ajax({
       method: 'POST',
-      url: 'https://accounts.spotify.com/api/token',
+      url:
+        'https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token',
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
