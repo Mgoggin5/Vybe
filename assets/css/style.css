@@ -106,10 +106,6 @@ body {
   height: 75px;
 }
 
-.sharethis-inline-share-buttons {
-  position: absolute; bottom: 0;
-}
-
 @keyframes shake {
   10%,
   90% {
