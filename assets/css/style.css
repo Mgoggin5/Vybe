@@ -185,32 +185,28 @@ margin-left: 160px;
     }
 }
 
-      @media screen and (max-width:980px){
-        .form-row{
-            margin-left: -213px;
-    }
-    .moods{
-        width: 91px;
-    }
-    .col-xs-2 {
-        width: 19.666667%;
-    }
-    .col-lg-6{
-        margin-left: -124px;
-    }
-    #vybe-logo{
-        margin-left: 153px;
-    }
+@media screen and (max-width: 980px) {
+  .form-row {
+    margin-left: -213px;
+  }
+  .moods {
+    width: 91px;
+  }
+  .col-xs-2 {
+    width: 19.666667%;
+  }
+  .col-lg-6 {
+    margin-left: -124px;
+  }
+  #vybe-logo {
+    margin-left: 153px;
+  }
 }
-    @media screen and (max-width:736px){
-        
-    }
-    @media screen and (max-width:412px){
-        
-    }
-    @media screen and (max-width:375px){
-        
-    }
-    @media screen and (max-width:360px){
-        
-    }
+@media screen and (max-width: 736px) {
+}
+@media screen and (max-width: 412px) {
+}
+@media screen and (max-width: 375px) {
+}
+@media screen and (max-width: 360px) {
+}
