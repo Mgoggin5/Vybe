@@ -100,7 +100,30 @@ margin-left: 160px;
         backface-visibility: hidden;
         perspective: 1000px;
       }
-      
+      .rounded-circle{
+          border: 3px solid #ff830f;
+          border-radius: 100px;
+          height: 141px;
+          margin-top: -10   px;
+          background: #252324;
+      }
+      .cond{
+          margin-top: 23px;
+
+      }
+      .wIcon{
+          width: 75px;
+      }
+      .jumbotron p{
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: 200;
+        margin-top: 18px;
+      }
+      .weather-dis{
+          background-image: url("../images/forecast.jpg");
+      }
+
       @keyframes shake {
         10%, 90% {
           transform: translate3d(-1px, 0, 0);
