@@ -34,10 +34,12 @@ body {
   height: 50%;
 }
 .form-font {
-  color: #ff830f;
-  text-align: left;
-  font-size: 20px;
-  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 27px;
+  margin-top: -28px;
+  font-family: 'Muli', sans-serif;
 }
 .btn-primary {
   background-color: #252324;
@@ -107,6 +109,44 @@ body {
 }
 #share {
   position: absolute; bottom: 0;
+}
+.rounded-circle{
+  border: 3px solid #ff830f;
+  border-radius: 100px;
+  height: 141px;
+  margin-top: -10   px;
+  background: #252324;
+}
+.cond{
+  margin-top: 23px;
+
+}
+.wIcon{
+  width: 75px;
+}
+.jumbotron p{
+margin-bottom: 15px;
+font-size: 21px;
+font-weight: 200;
+margin-top: 18px;
+}
+.weather-dis{
+  background-image: url("../images/forecast.jpg");
+}
+h2{
+  color: #252324;
+  margin-top: 5px;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+}
+
+.img-circle{
+  border: 5px solid white;
+  margin-right: 10px;
+  box-shadow: 1px 2px;
+}
+.about{
+  background-image: url('../images/backround_of_about.png');
 }
 @keyframes shake {
   10%,
