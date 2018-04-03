@@ -16,13 +16,13 @@ $(document).ready(function() {
       //Use the id and secret to create the base64 string necessary to
       //authenticate
       var requestObject =
-        'https://accounts.spotify.com/authorize' +
+        'https://accounts.spotify.com/authorize?' +
         $.param({
           client_id: a,
           redirect_uri: 'https://alexscar99.github.io/Vybe/',
           scope: 'user-read-private user-read-email',
-          response_type: 'token'
-          // redirect_uri: 'http://localhost:8080',
+          response_type: 'token',
+          state: 123
         });
 
       localStorage.setItem('auth_req_url', requestObject);
@@ -39,7 +39,7 @@ $(document).ready(function() {
   }
 
   function getToken() {
-    var params = new URLSearchParams(location.search.slice(1));
+    var params = new URLSearchParams(location.hash.slice(1));
 
     if (localStorage.getItem('token') !== null) {
       $('.login-btn').hide();
@@ -50,7 +50,6 @@ $(document).ready(function() {
     if (params.get('access_token')) {
       var access_token = params.get('access_token');
 
-      localStorage.setItem('s_auth_code', access_token);
       localStorage.setItem('token', access_token);
 
       if (localStorage.getItem('token') !== null) {
@@ -61,114 +60,52 @@ $(document).ready(function() {
     }
   }
 
-  // function refreshToken() {
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: 'https://accounts.spotify.com/api/token',
-  //     data: {
-  //       grant_type: 'authorization_code',
-  //       code: localStorage.getItem('s_auth_code'),
-  //       // response_type: 'token',
-  //       redirect_uri: 'https://alexscar99.github.io/Vybe/'
-  //       // redirect_uri: 'http://localhost:8080'
-  //     },
-  //     headers: {
-  //       Authorization: 'Basic ' + localStorage.getItem('auth_creds')
-  //     }
-  //   }).then(function(response) {
-  //     // console.log(response);
-  //     //Save the token returned into local storage
-  //     localStorage.setItem('token', response.access_token);
-  //     localStorage.setItem('refresh_token', response.refresh_token);
-  // });
-  // }
+  function displayPlaylist(playlist) {
+    var playlistWidget = $('<iframe>');
 
-  function displayPlaylist(user, playlist) {
-    // getToken();
+    playlistWidget.attr('src', playlist);
 
-    // populating iframe
-    // var playlistWidget = $('<iframe>');
+    playlistWidget.css('display', 'block');
 
-    // playlistWidget.attr('src', playlist);
+    playlistWidget.css('margin', '25px auto');
 
-    // playlistWidget.css('display', 'block');
+    playlistWidget.css('border-radius', '12px');
 
-    // playlistWidget.css('margin', '25px auto');
+    playlistWidget.attr('width', '500');
 
-    // playlistWidget.css('border-radius', '12px');
+    playlistWidget.attr('height', '700');
 
-    // playlistWidget.attr('width', '500');
+    playlistWidget.attr('frameborder', '0');
 
-    // playlistWidget.attr('height', '700');
+    playlistWidget.attr('allowtransparency', 'true');
 
-    // playlistWidget.attr('frameborder', '0');
+    playlistWidget.attr('allow', 'encrypted-media');
 
-    // playlistWidget.attr('allowtransparency', 'true');
-
-    // $('.display-playlist').append(playlistWidget);
-
-    // AJAX call for playlist
-
-    $.ajax({
-      method: 'GET',
-      url:
-        'https://api.spotify.com/v1/users/' + user + '/playlists/' + playlist,
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-      }
-    }).then(function(response) {
-      var playlistURI = response.href;
-
-      var playlistWidget = $('<iframe>');
-
-      playlistWidget.attr('src', playlistURI);
-
-      playlistWidget.css('display', 'block');
-
-      playlistWidget.css('margin', '25px auto');
-
-      playlistWidget.css('border-radius', '12px');
-
-      playlistWidget.attr('width', '500');
-
-      playlistWidget.attr('height', '700');
-
-      playlistWidget.attr('frameborder', '0');
-
-      playlistWidget.attr('allowtransparency', 'true');
-
-      $('.display-playlist').append(playlistWidget);
-    });
+    $('.display-playlist').append(playlistWidget);
   }
 
   function makeMoodBtns() {
-    // getToken();
-
-    // refreshToken();
-
     var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
     var userMoodIDs = [
       'spotify',
       'Tylercoryj',
       'spotify',
-      '12167594447',
-      'digster.co.uk'
+      'digster.co.uk',
+      '12167594447'
     ];
 
     var moodPlaylistIDs = [
       '37i9dQZF1DX9u7XXOp0l5L',
       '6V25z3STNb56BsUnO127Kl',
       '37i9dQZF1DZ06evO07w8CY',
-      '5veFroK6xpskEjvhEyqFUM',
-      '12R8HZh3GHUw1c4sgPtu6x'
+      '12R8HZh3GHUw1c4sgPtu6x',
+      '5veFroK6xpskEjvhEyqFUM'
     ];
 
     for (let i = 0; i < moods.length; i++) {
-      var btnWrapper = $("<div class='col-md-2 mood-images'>");
+      var btnWrapper = $("<div class='col-xs-2'>");
       var moodBtn = $('<img>');
-
-      moodBtn.text(moods[i]);
 
       moodBtn.addClass('mood-img');
 
@@ -176,23 +113,20 @@ $(document).ready(function() {
 
       moodBtn.attr('alt', moods[i]);
 
-      moodBtn.attr('data-user', userMoodIDs[i]);
+      moodBtn.attr(
+        'data-playlist',
+        'https://open.spotify.com/embed?uri=spotify:user:' +
+          userMoodIDs[i] +
+          ':playlist:' +
+          moodPlaylistIDs[i] +
+          '&theme=white'
+      );
 
-      moodBtn.attr('data-playlist', moodPlaylistIDs[i]);
-      // 'https://open.spotify.com/embed?uri=spotify:user:' +
-      //   userMoodIDs[i] +
-      //   ':playlist:' +
-      //   moodPlaylistIDs[i] +
-      //   '&theme=white'
-      // );
+      moodBtn.attr('data-styling', moods[i]);
 
       btnWrapper.append(moodBtn);
       $('.mood-row').append(btnWrapper);
     }
-  }
-
-  function weatherPlaylist() {
-    displayPlaylist(URL);
   }
 
   $('#display-weather').hide();
@@ -203,6 +137,7 @@ $(document).ready(function() {
     $('#display-weather').show();
     $('#display-playlist').show();
   });
+
   $('#add-city').click(function(event) {
     event.preventDefault();
 
@@ -223,8 +158,6 @@ $(document).ready(function() {
       url: weatherURL,
       method: 'GET'
     }).then(function(response) {
-      console.log(response);
-
       var data = response.current_observation;
 
       var forecast = response.forecast.simpleforecast.forecastday[0];
@@ -263,20 +196,57 @@ $(document).ready(function() {
         weatherIcon
       );
 
-      weatherUserIDs = ['id1', 'id2', 'id3', 'id4', 'id5'];
-
-      weatherPlaylistIDs = [
-        'playlist1',
-        'playlist2',
-        'playlist3',
-        'playlist4',
-        'playlist5'
-      ];
-
       if (conditions === 'Clear') {
-        displayPlaylist(playlist);
+        displayPlaylist(
+          'https://open.spotify.com/embed?uri=spotify:user:viandante:playlist:4UjQw5dn0x8AFCsNRe8NCO&theme=white'
+        );
+      } else if (
+        conditions === 'Overcast' ||
+        conditions === 'Chance of Rain' ||
+        conditions === 'Thunderstorm' ||
+        conditions === 'Heavy Thunderstorm' ||
+        conditions === 'Light Thunderstorm' ||
+        conditions === 'Rain' ||
+        conditions === 'Light Rain' ||
+        conditions === 'Heavy Rain' ||
+        conditions === 'Drizzle' ||
+        conditions === 'Light Drizzle' ||
+        conditions === 'Heavy Drizzle' ||
+        conditions === 'Rain Showers' ||
+        conditions === 'Light Rain Showers' ||
+        conditions === 'Heavy Rain Showers'
+      ) {
+        displayPlaylist(
+          'https://open.spotify.com/embed?uri=spotify:user:1189531262:playlist:68PSpHS62kdrc0sPRsA3pM&theme=white'
+        );
+      } else if (
+        conditions === 'Snow' ||
+        conditions === 'Light Snow' ||
+        conditions === 'Heavy Snow' ||
+        conditions === 'Snow Showers' ||
+        conditions === 'Light Snow Showers' ||
+        conditions === 'Heavy Snow Showers'
+      ) {
+        displayPlaylist(
+          'https://open.spotify.com/embed?uri=spotify:user:1215363058:playlist:4TL2cI15HGzIrnYH6p4HBu&theme=white'
+        );
 
-        $('#display-playlist');
+        $('display-playlist');
+      } else if (
+        conditions === 'Cloudy' ||
+        conditions === 'Partly Cloudy' ||
+        conditions === 'Scattered Clouds' ||
+        conditions === 'Mostly Cloudly'
+      ) {
+        displayPlaylist(
+          'https://open.spotify.com/embed?uri=spotify:user:kalynnicholsonn:playlist:2ufHhQrXKqZw7qAZ506Qbn&theme=white'
+        );
+
+        $('display-playlist');
+      } else {
+        displayPlaylist(
+          'https://open.spotify.com/embed?uri=spotify:user:x40fn74nzd798rvmpy6o5vue7:playlist:5oxZIYU1L9N1CczN0C4JkM&theme=white'
+        );
       }
     });
   });
@@ -294,11 +264,52 @@ $(document).ready(function() {
     $(document.body).on('click', '.mood-img', function() {
       $('.display-playlist').empty();
 
-      var userID = $(this).attr('data-user');
-
       var playlistID = $(this).attr('data-playlist');
 
-      displayPlaylist(userID, playlistID);
+      displayPlaylist(playlistID);
+
+      var styling = $(this).attr('data-styling');
+
+      if (styling === 'focus') {
+        $('body').css(
+          'background-image',
+          "url('http://www.zingerbug.com/Backgrounds/background_images/blue_christmas_lights_out_of_focus_seamless_texture.jpg')"
+        );
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'white');
+      } else if (styling === 'happy') {
+        $('body').css(
+          'background-image',
+          "url('https://i.pinimg.com/originals/7e/a3/d8/7ea3d8ecb053f6952f63ca536e65ad13.jpg')"
+        );
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'Crimson');
+      } else if (styling === 'mellow') {
+        $('body').css(
+          'background-image',
+          "url('http://78.media.tumblr.com/bbc196cbb9eaebce474ccb0ff0e6573c/tumblr_nlmg8qVAL01qcdtsho1_400.jpg')"
+        );
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'ForestGreen');
+      } else if (styling === 'amp') {
+        $('body').css(
+          'background',
+          "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/ampbackground.jpg?raw=true') no-repeat center center fixed"
+        );
+        $('body').css('background-size', 'cover');
+        $('body').css('-webkit-background-size', 'cover');
+        $('body').css('-moz-background-size', 'cover');
+        $('body').css('-o-background-size', 'cover');
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'BlueViolet');
+      } else {
+        $('body').css(
+          'background-image',
+          "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/calmbackground.jpg?raw=true')"
+        );
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'Aquamarine');
+      }
 
       $('html,body').animate(
         {
