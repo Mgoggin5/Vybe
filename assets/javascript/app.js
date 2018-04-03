@@ -69,6 +69,7 @@ $(document).ready(function() {
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
+        response_type: 'token',
         redirect_uri: 'https://alexscar99.github.io/Vybe/'
         // redirect_uri: 'http://localhost:8080'
       },
