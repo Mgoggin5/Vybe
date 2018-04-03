@@ -69,7 +69,7 @@ $(document).ready(function() {
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
-        response_type: 'token',
+        // response_type: 'token',
         redirect_uri: 'https://alexscar99.github.io/Vybe/'
         // redirect_uri: 'http://localhost:8080'
       },
@@ -77,7 +77,7 @@ $(document).ready(function() {
         Authorization: 'Basic ' + localStorage.getItem('auth_creds')
       }
     }).then(function(response) {
-      console.log(response);
+      // console.log(response);
       //Save the token returned into local storage
       localStorage.setItem('token', response.access_token);
       localStorage.setItem('refresh_token', response.refresh_token);
