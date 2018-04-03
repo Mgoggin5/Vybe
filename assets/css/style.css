@@ -105,7 +105,9 @@ body {
 .mood-img {
   height: 75px;
 }
-
+#share {
+  position: absolute; bottom: 0;
+}
 @keyframes shake {
   10%,
   90% {
