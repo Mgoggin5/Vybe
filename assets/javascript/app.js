@@ -20,7 +20,7 @@ $(document).ready(function() {
         $.param({
           client_id: a,
           response_type: 'code',
-          redirect_uri: 'https://alexscar99.github.io/Vybe',
+          redirect_uri: 'https://alexscar99.github.io/Vybe/',
           scopes: 'user-read-private user-read-email'
         });
 
@@ -69,7 +69,7 @@ $(document).ready(function() {
       data: {
         grant_type: 'authorization_code',
         code: localStorage.getItem('s_auth_code'),
-        redirect_uri: 'https://alexscar99.github.io/Vybe'
+        redirect_uri: 'https://alexscar99.github.io/Vybe/'
       },
       headers: {
         Authorization: 'Basic ' + localStorage.getItem('auth_creds')
