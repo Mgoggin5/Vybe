@@ -19,10 +19,10 @@ $(document).ready(function() {
         'https://accounts.spotify.com/authorize?' +
         $.param({
           client_id: a,
-          response_type: 'code',
           redirect_uri: 'https://alexscar99.github.io/Vybe/',
+          scope: 'user-read-private user-read-email',
+          response_type: 'token'
           // redirect_uri: 'http://localhost:8080',
-          scopes: 'user-read-private user-read-email'
         });
 
       localStorage.setItem('auth_req_url', requestObject);
