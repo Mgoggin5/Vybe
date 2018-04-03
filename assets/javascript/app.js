@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var timeoutId = 0;
   var token;
 
@@ -76,7 +76,7 @@ $(document).ready(function() {
       headers: {
         Authorization: 'Basic ' + localStorage.getItem('auth_creds')
       }
-    }).then(function(response) {
+    }).then(function (response) {
       //Save the token returned into local storage
       localStorage.setItem('token', response.access_token);
       localStorage.setItem('refresh_token', response.refresh_token);
@@ -139,9 +139,9 @@ $(document).ready(function() {
       moodBtn.attr(
         'data-playlist',
         'https://open.spotify.com/embed?uri=spotify%3Auser%3A' +
-          userIDs[i] +
-          '%3Aplaylist%3A' +
-          playlistIDs[i]
+        userIDs[i] +
+        '%3Aplaylist%3A' +
+        playlistIDs[i]
       );
 
       btnWrapper.append(moodBtn);
@@ -152,12 +152,12 @@ $(document).ready(function() {
   $('#display-weather').hide();
   $('#display-playlist').hide();
 
-  $('#add-city').click(function() {
+  $('#add-city').click(function () {
     $('#display-submit').hide();
     $('#display-weather').show();
     $('#display-playlist').show();
   });
-  $('#add-city').click(function(event) {
+  $('#add-city').click(function (event) {
     event.preventDefault();
 
     var city = $('#city')
@@ -176,7 +176,7 @@ $(document).ready(function() {
     $.ajax({
       url: weatherURL,
       method: 'GET'
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
       // $('#location-display').append(response.display_location.full);
       //       $('#temperture-display').append(response.temp_f);
@@ -208,28 +208,30 @@ $(document).ready(function() {
       var weather = $('<p style="color: white; text-align: center;">').text(
         'Conditions: ' + conditions
       );
+      weather.addClass("cond");
       var weatherIcon = $('<img style="display: block; margin: 0 auto;">').attr(
         'src',
         iconURL
       );
+      weatherIcon.addClass("wIcon");
 
       $('#location-display').append(
         p,
         highTemperature,
         lowTemperature,
-        weather,
-        weatherIcon
+
       );
+      $('#icon-display').append(weatherIcon, weather);
     });
   });
 
-  $('#add-city').click(function() {
+  $('#add-city').click(function () {
     $('#display-submit').hide();
     $('#display-weather').show();
     $('#display-playlist').show();
   });
 
-  $(document.body).on('click', '.mood-btn', function() {
+  $(document.body).on('click', '.mood-btn', function () {
     $('#playlist-display').empty();
 
     var moodPlaylist = $(this).attr('data-playlist');
