@@ -36,12 +36,13 @@ margin-left: 160px;
         height: 50%;
     }
     .form-font{
-        color: white;
+        color: #fe820e;
         text-align: center;
-        font-size: 30px;
-        margin-bottom: 27px;
-        margin-top: -28px;
+        font-size: 15px;
+        margin-bottom: 12px;
+        margin-top: 0px;
         font-family: 'Muli', sans-serif;
+        margin-left: 10px;
     }
     .btn-primary{
         background-color: #252324;
