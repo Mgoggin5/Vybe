@@ -121,7 +121,7 @@ margin-left: 160px;
         padding: 5%;
       }
 
-      .playlist-row col-lg-12 {
+      .playlist-row .col-lg-12 {
           width: 140%;
           margin: 15% 0 0 -22%;
           display: block;
