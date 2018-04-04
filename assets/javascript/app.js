@@ -181,7 +181,7 @@ $(document).ready(function () {
                 '<p style="color: white; text-align: center;">'
             ).text('Low: ' + lowTemp + '° F');
 
-            var weather = $('<p style="color: white; text-align: center;">').text(
+            var weather = $('<p style="color: white; text-align: center; font-size: 18px;">').text(
                 'Conditions: ' + conditions
             );
             var weatherIcon = $('<img style="display: block; margin: 4% auto; height: 65px;">').attr(
