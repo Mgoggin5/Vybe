@@ -135,10 +135,10 @@ margin-left: 160px;
           width: 75px;
       }
       .jumbotron p{
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         font-size: 21px;
-        font-weight: 200;
-        margin-top: 18px;
+        font-weight: bold;
+        margin-top: 10px;
       }
       .weather-dis{
           background-image: url("../images/forecast.jpg");
