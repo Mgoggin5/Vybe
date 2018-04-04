@@ -42,7 +42,10 @@ margin-left: 160px;
       font-family: 'Muli', sans-serif;
     }
 
-    
+    .team-names {
+      font-size: 18px;    
+    }
+
     .form-font{
         color: #fe820e;
         text-align: center;
