@@ -35,6 +35,14 @@ margin-left: 160px;
         width: 75%;
         height: 50%;
     }
+
+    .about {
+      font-size: 30px;
+      color: white;
+      font-family: 'Muli', sans-serif;
+    }
+
+    
     .form-font{
         color: #fe820e;
         text-align: center;
