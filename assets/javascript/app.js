@@ -60,7 +60,8 @@ $(document).ready(function () {
             }
         }
     }
-
+    
+    // function to show playlist by creating an iframe with src URL as argument
     function displayPlaylist(playlist) {
         var playlistWidget = $('<iframe>');
 
@@ -84,7 +85,7 @@ $(document).ready(function () {
 
         $('.display-playlist').append(playlistWidget);
     }
-
+    
     function makeMoodBtns() {
         var moods = ['happy', 'mellow', 'focus', 'amp', 'calm'];
 
@@ -103,18 +104,19 @@ $(document).ready(function () {
             '12R8HZh3GHUw1c4sgPtu6x',
             '5veFroK6xpskEjvhEyqFUM'
         ];
-
+        
+        // creates emoji imgs and adds class and attributes
         for (let i = 0; i < moods.length; i++) {
             var btnWrapper = $("<div class='col-xs-2'>");
             var moodBtn = $('<img>');
 
             moodBtn.addClass('mood-img');
-            moodBtn.addClass('face');
 
             moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
 
             moodBtn.attr('alt', moods[i]);
-
+            
+            // creates data attr with URL populated from above arrays
             moodBtn.attr(
                 'data-playlist',
                 'https://open.spotify.com/embed?uri=spotify:user:' +
@@ -139,10 +141,11 @@ $(document).ready(function () {
         $('#display-weather').show();
         $('#display-playlist').show();
     });
-
+    
     $('#add-city').click(function (event) {
         event.preventDefault();
-
+        
+        // store user input values from city and state text boxes and create URL for AJAX call
         var city = $('#city')
             .val()
             .trim();
@@ -155,7 +158,8 @@ $(document).ready(function () {
             '/' +
             city +
             '.json';
-
+        
+        // AJAX call to get weather from Wunderground API
         $.ajax({
             url: weatherURL,
             method: 'GET'
@@ -195,8 +199,9 @@ $(document).ready(function () {
                 highTemperature,
                 lowTemperature);
             
-            $('#icon-display').append(weatherIcon, weather);           
-
+            $('#icon-display').append(weatherIcon, weather); 
+            
+            // conditionals to populate playlist based on specific weather conditions
             if (conditions === 'Clear') {
                 displayPlaylist(
                     'https://open.spotify.com/embed?uri=spotify:user:viandante:playlist:4UjQw5dn0x8AFCsNRe8NCO&theme=white'
@@ -263,71 +268,66 @@ $(document).ready(function () {
         makeMoodBtns();
 
         $(document.body).on('click', '.mood-img', function() {
-      $('.display-playlist').empty();
+            $('.display-playlist').empty();
 
-      var playlistID = $(this).attr('data-playlist');
+            var playlistID = $(this).attr('data-playlist');
 
-      displayPlaylist(playlistID);
+            displayPlaylist(playlistID);
 
-      var styling = $(this).attr('data-styling');
-
-      if (styling === 'focus') {
-        $('body').css(
-          'background',
-          "url('http://www.zingerbug.com/Backgrounds/background_images/blue_christmas_lights_out_of_focus_seamless_texture.jpg') no-repeat center center fixed"
-        );
-        $('body').css('background-size', 'cover');
-        $('body').css('-webkit-background-size', 'cover');
-        $('body').css('-moz-background-size', 'cover');
-        $('body').css('-o-background-size', 'cover');
-        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-        $('.navbar').css('background-color', 'white');
-      } else if (styling === 'happy') {
-        $('body').css(
-          'background',
-          "url('https://i.pinimg.com/originals/7e/a3/d8/7ea3d8ecb053f6952f63ca536e65ad13.jpg') no-repeat center center fixed"
-        );
-        $('body').css('background-size', 'cover');
-        $('body').css('-webkit-background-size', 'cover');
-        $('body').css('-moz-background-size', 'cover');
-        $('body').css('-o-background-size', 'cover');
-        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-        $('.navbar').css('background-color', 'Crimson');
-      } else if (styling === 'mellow') {
-        $('body').css(
-          'background',
-          "url('http://78.media.tumblr.com/bbc196cbb9eaebce474ccb0ff0e6573c/tumblr_nlmg8qVAL01qcdtsho1_400.jpg') no-repeat center center fixed"
-        );
-        $('body').css('background-size', 'cover');
-        $('body').css('-webkit-background-size', 'cover');
-        $('body').css('-moz-background-size', 'cover');
-        $('body').css('-o-background-size', 'cover');
-        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-        $('.navbar').css('background-color', 'ForestGreen');
-      } else if (styling === 'amp') {
-        $('body').css(
-          'background',
-          "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/ampbackground.jpg?raw=true') no-repeat center center fixed"
-        );
-        $('body').css('background-size', 'cover');
-        $('body').css('-webkit-background-size', 'cover');
-        $('body').css('-moz-background-size', 'cover');
-        $('body').css('-o-background-size', 'cover');
-        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-        $('.navbar').css('background-color', 'BlueViolet');
-      } else {
-        $('body').css(
-          'background',
-          "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/calmbackground.jpg?raw=true') no-repeat center center fixed"
-        );
-        $('body').css('background-size', 'cover');
-        $('body').css('-webkit-background-size', 'cover');
-        $('body').css('-moz-background-size', 'cover');
-        $('body').css('-o-background-size', 'cover');
-        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-        $('.navbar').css('background-color', 'Aquamarine');
-      }
-
+            var styling = $(this).attr('data-styling');
+      
+            // display playlist based on which emoji clicked, add styling to suit that mood
+            if (styling === 'focus') {
+                $('body').css('background', 
+                "url('http://www.zingerbug.com/Backgrounds/background_images/blue_christmas_lights_out_of_focus_seamless_texture.jpg') no-repeat center center fixed"
+                );
+                $('body').css('background-size', 'cover');
+                $('body').css('-webkit-background-size', 'cover');
+                $('body').css('-moz-background-size', 'cover');
+                $('body').css('-o-background-size', 'cover');
+                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('.navbar').css('background-color', 'white');
+            } else if (styling === 'happy') {
+                $('body').css('background',
+                "url('https://i.pinimg.com/originals/7e/a3/d8/7ea3d8ecb053f6952f63ca536e65ad13.jpg') no-repeat center center fixed"
+                );
+                $('body').css('background-size', 'cover');
+                $('body').css('-webkit-background-size', 'cover');
+                $('body').css('-moz-background-size', 'cover');
+                $('body').css('-o-background-size', 'cover');
+                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('.navbar').css('background-color', 'Crimson');
+            } else if (styling === 'mellow') {
+                $('body').css('background',
+                "url('http://78.media.tumblr.com/bbc196cbb9eaebce474ccb0ff0e6573c/tumblr_nlmg8qVAL01qcdtsho1_400.jpg') no-repeat center center fixed"
+                );
+                $('body').css('background-size', 'cover');
+                $('body').css('-webkit-background-size', 'cover');
+                $('body').css('-moz-background-size', 'cover');
+                $('body').css('-o-background-size', 'cover');
+                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('.navbar').css('background-color', 'ForestGreen');
+            } else if (styling === 'amp') {
+                $('body').css('background',
+                "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/ampbackground.jpg?raw=true') no-repeat center center fixed"
+                );
+                $('body').css('background-size', 'cover');
+                $('body').css('-webkit-background-size', 'cover');
+                $('body').css('-moz-background-size', 'cover');
+                $('body').css('-o-background-size', 'cover');
+                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('.navbar').css('background-color', 'BlueViolet');
+            } else {
+                $('body').css('background',
+                "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/calmbackground.jpg?raw=true') no-repeat center center fixed"
+                );
+                $('body').css('background-size', 'cover');
+                $('body').css('-webkit-background-size', 'cover');
+                $('body').css('-moz-background-size', 'cover');
+                $('body').css('-o-background-size', 'cover');
+                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('.navbar').css('background-color', 'Aquamarine');
+            }
 
             $('html,body').animate(
                 {
@@ -337,6 +337,5 @@ $(document).ready(function () {
             );
         });
     }
-
     prepAuthorize();
 });
