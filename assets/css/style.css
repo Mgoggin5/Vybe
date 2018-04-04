@@ -46,6 +46,10 @@ margin-left: 160px;
       font-size: 18px;    
     }
 
+    h2 .form-font {
+      font-size: 35px;    
+    }
+
     .form-font{
         color: #fe820e;
         text-align: center;
