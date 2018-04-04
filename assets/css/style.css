@@ -42,7 +42,7 @@ margin-left: 160px;
       font-family: 'Muli', sans-serif;
     }
 
-    h2 .team-names {
+    h2 > .team-names {
       font-size: 18px;    
     }
 
