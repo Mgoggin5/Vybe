@@ -68,13 +68,13 @@ $(document).ready(function () {
 
         playlistWidget.css('display', 'block');
 
-        playlistWidget.css('margin', '25px auto');
+        playlistWidget.css('margin', '0 auto');
 
-        playlistWidget.css('border-radius', '12px');
+        playlistWidget.css('border-radius', '24px');
 
-        playlistWidget.attr('width', '500');
+        playlistWidget.attr('width', '400');
 
-        playlistWidget.attr('height', '700');
+        playlistWidget.attr('height', '600');
 
         playlistWidget.attr('frameborder', '0');
 
