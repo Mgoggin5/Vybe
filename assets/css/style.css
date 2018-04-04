@@ -55,6 +55,11 @@ margin-left: 160px;
         font-family: 'Muli', sans-serif;
         margin-left: 10px;
     }
+
+    .form-font #add-city {
+      margin-left: 3%;    
+    }
+
     .btn-primary{
         background-color: #252324;
         color: #ff830f;
