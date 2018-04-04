@@ -105,7 +105,7 @@ $(document).ready(function () {
         ];
 
         for (let i = 0; i < moods.length; i++) {
-            var btnWrapper = $("<div class='col-xs-3'>");
+            var btnWrapper = $("<div class='col-xs-2'>");
             var moodBtn = $('<img>');
 
             moodBtn.addClass('mood-img');
