@@ -72,7 +72,7 @@ $(document).ready(function () {
 
         playlistWidget.css('border-radius', '24px');
 
-        playlistWidget.attr('width', '400');
+        playlistWidget.attr('width', '550');
 
         playlistWidget.attr('height', '600');
 
