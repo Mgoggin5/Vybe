@@ -149,7 +149,7 @@ $(document).ready(function () {
             .val()
             .trim();
         var weatherURL =
-            'http://api.wunderground.com/api/22c4d183e8562c2d/conditions/geolookup/forecast/hourly10day/q/' +
+            'https://api.wunderground.com/api/22c4d183e8562c2d/conditions/geolookup/forecast/hourly10day/q/' +
             state +
             '/' +
             city +
