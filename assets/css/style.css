@@ -102,6 +102,23 @@ margin-left: 160px;
         backface-visibility: hidden;
         perspective: 1000px;
       }
+    
+      .mood-row {
+        height: 50px;
+        margin-bottom: 3%;
+      }
+
+      .mood-row img {
+        height: 75px;
+      }
+
+      .mood-row .col-xs-2 {
+        width: 20%;
+      }
+
+      .display-playlist {
+        padding: 5%;
+      }
       .rounded-circle{
           border: 3px solid #ff830f;
           border-radius: 100px;
