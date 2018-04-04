@@ -277,6 +277,7 @@ $(document).ready(function () {
                     "url('http://www.zingerbug.com/Backgrounds/background_images/blue_christmas_lights_out_of_focus_seamless_texture.jpg')"
                 );
                 $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
                 $('.navbar').css('background-color', 'white');
             } else if (styling === 'happy') {
                 $('body').css(
@@ -284,6 +285,7 @@ $(document).ready(function () {
                     "url('https://i.pinimg.com/originals/7e/a3/d8/7ea3d8ecb053f6952f63ca536e65ad13.jpg')"
                 );
                 $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
                 $('.navbar').css('background-color', 'Crimson');
             } else if (styling === 'mellow') {
                 $('body').css(
@@ -291,6 +293,7 @@ $(document).ready(function () {
                     "url('http://78.media.tumblr.com/bbc196cbb9eaebce474ccb0ff0e6573c/tumblr_nlmg8qVAL01qcdtsho1_400.jpg')"
                 );
                 $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
                 $('.navbar').css('background-color', 'ForestGreen');
             } else if (styling === 'amp') {
                 $('body').css(
@@ -302,6 +305,7 @@ $(document).ready(function () {
                 $('body').css('-moz-background-size', 'cover');
                 $('body').css('-o-background-size', 'cover');
                 $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
                 $('.navbar').css('background-color', 'BlueViolet');
             } else {
                 $('body').css(
@@ -309,6 +313,7 @@ $(document).ready(function () {
                     "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/calmbackground.jpg?raw=true')"
                 );
                 $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
                 $('.navbar').css('background-color', 'Aquamarine');
             }
 
