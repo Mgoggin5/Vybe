@@ -192,10 +192,9 @@ $(document).ready(function () {
             $('#location-display').append(
                 p,
                 highTemperature,
-                lowTemperature,
-                weather,
-                weatherIcon
-            );
+                lowTemperature);
+            
+            $('#icon-display').append(weatherIcon, weather);           
 
             if (conditions === 'Clear') {
                 displayPlaylist(
