@@ -120,6 +120,13 @@ margin-left: 160px;
       .display-playlist {
         padding: 5%;
       }
+
+      .playlist-row col-lg-12 {
+          width: 140%;
+          margin: 15% 0 0 -22%;
+          display: block;
+      }
+
       .rounded-circle{
           border: 3px solid #ff830f;
           border-radius: 100px;
