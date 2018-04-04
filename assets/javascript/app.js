@@ -262,60 +262,72 @@ $(document).ready(function () {
     if ($('.mood-background').length > 0) {
         makeMoodBtns();
 
-        $(document.body).on('click', '.mood-img', function () {
-            $('.display-playlist').empty();
+        $(document.body).on('click', '.mood-img', function() {
+      $('.display-playlist').empty();
 
-            var playlistID = $(this).attr('data-playlist');
+      var playlistID = $(this).attr('data-playlist');
 
-            displayPlaylist(playlistID);
+      displayPlaylist(playlistID);
 
-            var styling = $(this).attr('data-styling');
+      var styling = $(this).attr('data-styling');
 
-            if (styling === 'focus') {
-                $('body').css(
-                    'background-image',
-                    "url('http://www.zingerbug.com/Backgrounds/background_images/blue_christmas_lights_out_of_focus_seamless_texture.jpg')"
-                );
-                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
-                $('.navbar').css('background-color', 'white');
-            } else if (styling === 'happy') {
-                $('body').css(
-                    'background-image',
-                    "url('https://i.pinimg.com/originals/7e/a3/d8/7ea3d8ecb053f6952f63ca536e65ad13.jpg')"
-                );
-                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
-                $('.navbar').css('background-color', 'Crimson');
-            } else if (styling === 'mellow') {
-                $('body').css(
-                    'background-image',
-                    "url('http://78.media.tumblr.com/bbc196cbb9eaebce474ccb0ff0e6573c/tumblr_nlmg8qVAL01qcdtsho1_400.jpg')"
-                );
-                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
-                $('.navbar').css('background-color', 'ForestGreen');
-            } else if (styling === 'amp') {
-                $('body').css(
-                    'background',
-                    "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/ampbackground.jpg?raw=true') no-repeat center center fixed"
-                );
-                $('body').css('background-size', 'cover');
-                $('body').css('-webkit-background-size', 'cover');
-                $('body').css('-moz-background-size', 'cover');
-                $('body').css('-o-background-size', 'cover');
-                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
-                $('.navbar').css('background-color', 'BlueViolet');
-            } else {
-                $('body').css(
-                    'background-image',
-                    "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/calmbackground.jpg?raw=true')"
-                );
-                $('#vybe-logo, .playlist-display').css('border', '5px solid white');
-                $('#vybe-logo, .playlist-display').css('margin-top', '5%');
-                $('.navbar').css('background-color', 'Aquamarine');
-            }
+      if (styling === 'focus') {
+        $('body').css(
+          'background',
+          "url('http://www.zingerbug.com/Backgrounds/background_images/blue_christmas_lights_out_of_focus_seamless_texture.jpg') no-repeat center center fixed"
+        );
+        $('body').css('background-size', 'cover');
+        $('body').css('-webkit-background-size', 'cover');
+        $('body').css('-moz-background-size', 'cover');
+        $('body').css('-o-background-size', 'cover');
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'white');
+      } else if (styling === 'happy') {
+        $('body').css(
+          'background',
+          "url('https://i.pinimg.com/originals/7e/a3/d8/7ea3d8ecb053f6952f63ca536e65ad13.jpg') no-repeat center center fixed"
+        );
+        $('body').css('background-size', 'cover');
+        $('body').css('-webkit-background-size', 'cover');
+        $('body').css('-moz-background-size', 'cover');
+        $('body').css('-o-background-size', 'cover');
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'Crimson');
+      } else if (styling === 'mellow') {
+        $('body').css(
+          'background',
+          "url('http://78.media.tumblr.com/bbc196cbb9eaebce474ccb0ff0e6573c/tumblr_nlmg8qVAL01qcdtsho1_400.jpg') no-repeat center center fixed"
+        );
+        $('body').css('background-size', 'cover');
+        $('body').css('-webkit-background-size', 'cover');
+        $('body').css('-moz-background-size', 'cover');
+        $('body').css('-o-background-size', 'cover');
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'ForestGreen');
+      } else if (styling === 'amp') {
+        $('body').css(
+          'background',
+          "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/ampbackground.jpg?raw=true') no-repeat center center fixed"
+        );
+        $('body').css('background-size', 'cover');
+        $('body').css('-webkit-background-size', 'cover');
+        $('body').css('-moz-background-size', 'cover');
+        $('body').css('-o-background-size', 'cover');
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'BlueViolet');
+      } else {
+        $('body').css(
+          'background',
+          "url('https://github.com/alexscar99/Project1-Group6/blob/regina/assets/images/calmbackground.jpg?raw=true') no-repeat center center fixed"
+        );
+        $('body').css('background-size', 'cover');
+        $('body').css('-webkit-background-size', 'cover');
+        $('body').css('-moz-background-size', 'cover');
+        $('body').css('-o-background-size', 'cover');
+        $('#vybe-logo, .playlist-display').css('border', '5px solid white');
+        $('.navbar').css('background-color', 'Aquamarine');
+      }
+
 
             $('html,body').animate(
                 {
