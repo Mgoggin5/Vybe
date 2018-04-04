@@ -111,6 +111,7 @@ $(document).ready(function () {
             var moodBtn = $('<img>');
 
             moodBtn.addClass('mood-img');
+             moodBtn.addClass('face');
 
             moodBtn.attr('src', 'assets/images/' + moods[i] + '.png');
 
