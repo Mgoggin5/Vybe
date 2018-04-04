@@ -46,8 +46,14 @@ margin-left: 160px;
       font-size: 18px;    
     }
 
-    h2 .form-font {
-      font-size: 35px;    
+    .header-text {
+      font-size: 35px;
+      color: #fe820e;
+      text-align: center;
+      margin-bottom: 12px;
+      margin-top: 0px;
+      font-family: 'Muli', sans-serif;
+      margin-left: 10px;
     }
 
     .form-font{
