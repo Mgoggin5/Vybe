@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         playlistWidget.css('display', 'block');
 
-        playlistWidget.css('margin', '0 auto');
+        playlistWidget.css('margin', '0 auto 0 -2%');
 
         playlistWidget.css('border-radius', '24px');
 
